@@ -11,8 +11,8 @@ import {
   Navbar,
   Pagination,
   SearchItems,
-} from "../components";
-import { fetchVideos } from "../helper/functions";
+} from "../../components";
+import { fetchVideos } from "../../helper/functions";
 
 export default function Home() {
   const router = useRouter();
@@ -59,7 +59,7 @@ export default function Home() {
         )}
 
         {pageCount && (
-          <Pagination pageCount={pageCount} currentPage={currentPage} path="" />
+          <Pagination pageCount={pageCount} currentPage={currentPage} path="trending_videos" />
         )}
       </div>
       <Footer />
