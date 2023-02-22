@@ -7,11 +7,11 @@ const Card = ({ data }) => {
 
   return (
     <div className="w-auto sm:min-h-[180px] min-h-[150px] flex flex-col group gap-[5px]">
-      <Link href={`video/?id=${remakeUrl}`}>
+      <Link href={`/video/?id=${remakeUrl}`}>
         <div className="w-full sm:h-[150px] h-[120px] relative">
           <Image
-            src={data?.thumbnail}
-            // src={"https://i.postimg.cc/bNPXbc0F/pexels-photo-6195084.jpg"}
+            // src={data?.thumbnail}
+            src={"https://i.postimg.cc/bNPXbc0F/pexels-photo-6195084.jpg"}
             className="w-full h-full object-cover"
             width={1080}
             height={720}

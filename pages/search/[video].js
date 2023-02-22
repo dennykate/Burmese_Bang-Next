@@ -40,8 +40,6 @@ export default function Home() {
     setVidoes([]);
     scrollToTop();
 
-    console.log(search, page);
-
     const data = await fetchSearchVideos(`${search}/`, page);
 
     console.log(data);

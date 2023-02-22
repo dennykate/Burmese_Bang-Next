@@ -14,8 +14,14 @@ const Navbar = () => {
   const handleClick = () => {
     if (inputText == "") return;
 
-    router.push(`/search/${inputText}`);
+    router.push(`/search/${inputText.toLowerCase()}`);
     setInputText("");
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.keyCode === 13) {
+      handleClick();
+    }
   };
 
   return (
@@ -31,6 +37,7 @@ const Navbar = () => {
           <input
             value={inputText}
             onChange={(e) => setInputText(e.target.value)}
+            onKeyDown={handleKeyDown}
             type="text"
             className="w-[360px] h-full border-none outline-none bg-secondary px-[14px] font-raleWay text-sm 
             placeholderColor text-white sm:block hidden"
@@ -48,6 +55,7 @@ const Navbar = () => {
       <input
         value={inputText}
         onChange={(e) => setInputText(e.target.value)}
+        onKeyDown={handleKeyDown}
         type="text"
         className="w-full h-[40px] border-none outline-none bg-secondary px-[14px] font-raleWay text-sm 
             placeholderColor text-white sm:hidden block"
