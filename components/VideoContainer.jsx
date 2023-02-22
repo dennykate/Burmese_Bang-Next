@@ -78,6 +78,7 @@ const VideoContainer = ({ data }) => {
             href={url}
             download
             target="_blank"
+            rel="noreferrer"
             className="px-[32px] py-[8px] bg-primary rounded hover:bg-transparent border-[2px] border-primary 
            transition-all duration-200 ease-in-out "
           >

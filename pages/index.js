@@ -32,7 +32,7 @@ export default function Home() {
     }
   }, [router]);
 
-  const fetchData = async (page) => {
+  const fetchData = async (page = 1) => {
     setVidoes([]);
     scrollToTop();
 

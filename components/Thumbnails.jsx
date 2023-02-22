@@ -14,6 +14,7 @@ const Thumbnails = ({ photos }) => {
             width={1280}
             height={1}
             className="w-full h-full"
+            alt="thumbnail"
           />
         </div>
       ))}
