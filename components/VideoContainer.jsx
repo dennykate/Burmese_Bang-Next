@@ -26,7 +26,7 @@ const VideoContainer = ({ data }) => {
 
   return (
     <div className="w-full flex items-start gap-[8px] my-[12px] sm:flex-row flex-col">
-      <div className="w-full bg-gray-800 sm:px-[20px] px-[10px] py-[10px] pb-[20px]">
+      <div className="w-full bg-gray-800 sm:px-[20px] px-[5px] py-[10px] pb-[20px]">
         <div className="w-full ">
           <Plyr source={videoSrc} autoPlay={true} />
         </div>
@@ -40,7 +40,7 @@ const VideoContainer = ({ data }) => {
             <h1 className=" font-raleWay  sm:text-base text-sm text-white">
               Name -{" "}
             </h1>
-            <h1 className=" font-raleWay font-semibold sm:text-lg text-xs text-primary">
+            <h1 className=" font-raleWay font-semibold sm:text-lg text-xs text-[#f5f5f5]">
               {title}
             </h1>
           </div>
@@ -49,7 +49,7 @@ const VideoContainer = ({ data }) => {
             <h1 className=" font-raleWay  sm:text-base text-sm text-white">
               Duration -{" "}
             </h1>
-            <h1 className=" font-raleWay font-semibold sm:text-lg text-xs text-primary">
+            <h1 className=" font-raleWay font-semibold sm:text-lg text-xs text-[#f5f5f5]">
               {duration.split(":")[0]}minutes
             </h1>
           </div>
@@ -58,7 +58,7 @@ const VideoContainer = ({ data }) => {
             <h1 className=" font-raleWay  sm:text-base text-sm text-white">
               Popularity -{" "}
             </h1>
-            <h1 className=" font-raleWay font-semibold sm:text-lg text-xs text-primary">
+            <h1 className=" font-raleWay font-semibold sm:text-lg text-xs text-[#f5f5f5]">
               {popularity}
             </h1>
           </div>
@@ -67,7 +67,7 @@ const VideoContainer = ({ data }) => {
             <h1 className=" font-raleWay  sm:text-base text-sm text-white">
               Rate -{" "}
             </h1>
-            <h1 className=" font-raleWay font-semibold sm:text-lg text-xs text-primary">
+            <h1 className=" font-raleWay font-semibold sm:text-lg text-xs text-[#f5f5f5]">
               {rate}
             </h1>
           </div>

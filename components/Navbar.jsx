@@ -9,7 +9,7 @@ import BannerAds from "./BannerAds";
 const Navbar = () => {
   return (
     <div className="w-full">
-      <div className="w-full px-[12px] sm:h-[80px] h-[50px] flex justify-between items-center border-b-[1px] border-primary">
+      <div className="w-full px-[12px] sm:h-[80px] h-[60px] flex justify-between items-center border-b-[1px] border-primary">
         <Link href={"/"}>
           <div className="sm:h-[40px] h-[30px] ">
             <Image src={Logo} alt="logo" className="w-full h-full " />
