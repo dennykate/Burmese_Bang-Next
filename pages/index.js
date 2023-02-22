@@ -30,6 +30,8 @@ export default function Home() {
     } else {
       fetchData(1);
     }
+
+    console.log(process.env.NEXT_APP_BASE_URL);
   }, [router]);
 
   const fetchData = async (page = 1) => {

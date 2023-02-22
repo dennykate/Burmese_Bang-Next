@@ -26,7 +26,7 @@ const VideoContainer = ({ data }) => {
 
   return (
     <div className="w-full flex items-start gap-[8px] my-[12px] sm:flex-row flex-col">
-      <div className="w-full bg-gray-800 sm:px-[20px] px-[10px] py-[5px] pb-[20px]">
+      <div className="w-full bg-gray-800 sm:px-[20px] px-[10px] py-[10px] pb-[20px]">
         <div className="w-full ">
           <Plyr source={videoSrc} autoPlay={true} />
         </div>

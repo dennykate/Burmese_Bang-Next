@@ -11,3 +11,13 @@ export const fetchVideos = async (type, page) => {
 
   return data;
 };
+
+export const fetchVideo = async (url) => {
+  const { data } = await axios.post(BASE_URL + "/api/video", {
+    data: {
+      url,
+    },
+  });
+
+  return data;
+};

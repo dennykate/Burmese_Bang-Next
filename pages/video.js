@@ -10,6 +10,7 @@ import {
   RelatedVideos,
   VideoContainer,
 } from "../components";
+import { fetchVideo } from "../helper/functions";
 import { fakeData } from "../utils/data";
 
 export default function Video() {
@@ -27,11 +28,7 @@ export default function Video() {
   }, [router]);
 
   const fetchData = async (url) => {
-    const { data } = await axios.post("http://localhost:3000/api/video", {
-      data: {
-        url,
-      },
-    });
+    const data = await fetchVideo(url);
 
     console.log(data);
     setVideoData(data);

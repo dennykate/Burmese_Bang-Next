@@ -10,8 +10,8 @@ import Logo from "../assets/logo.png";
 const Footer = () => {
   return (
     <div className="w-full   bg-gray-800">
-      <div className="max-w-[1024px] py-[40px] mx-auto sm:px-[5px] px-[10px] flex justify-between items-start">
-        <div className="w-[120px]">
+      <div className="max-w-[1024px] sm:py-[40px] py-[20px] mx-auto sm:px-[5px] px-[10px] flex justify-between items-start">
+        <div className="sm:w-[120px] w-[100px]">
           <Image src={Logo} alt="logo" />
         </div>
         <div className=" flex flex-col gap-[24px] sm:items-start items-end sm:w-[300px] w-[200px]">

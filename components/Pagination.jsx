@@ -17,7 +17,7 @@ const Pagination = ({ pageCount, currentPage, path }) => {
   };
 
   return (
-    <div className="w-full sm:py-[20px] py-[10px] px-[5px] flex justify-center items-center">
+    <div className="w-full sm:py-[20px] py-[10px] pb-[30px] px-[5px] flex justify-center items-center">
       <div className="max-w-[320px] h-[40px] flex">
         <button
           onClick={handlePrevClick}
