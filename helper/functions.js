@@ -21,3 +21,13 @@ export const fetchVideo = async (url) => {
 
   return data;
 };
+
+export const fetchSearchVideos = async (search, page) => {
+  const { data } = await axios.post(BASE_URL + "/api/search-videos", {
+    data: {
+      search: search + page + "/",
+    },
+  });
+
+  return data;
+};

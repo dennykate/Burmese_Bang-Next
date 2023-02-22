@@ -11,6 +11,7 @@ const Card = ({ data }) => {
         <div className="w-full sm:h-[150px] h-[120px] relative">
           <Image
             src={data?.thumbnail}
+            // src={"https://i.postimg.cc/bNPXbc0F/pexels-photo-6195084.jpg"}
             className="w-full h-full object-cover"
             width={1080}
             height={720}

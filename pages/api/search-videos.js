@@ -2,11 +2,12 @@ import axios from "axios";
 import * as cheerio from "cheerio";
 
 export default async function handler(req, res) {
-  const videoType = req.body.data.type;
-  const result = await axios.get("https://spankbang.com/" + videoType);
+  const search = req.body.data.search;
+  const result = await axios.get(
+    "https://spankbang.com/s/" + search + "?o=all"
+  );
   const $ = cheerio.load(result.data);
   const videos = [];
-  const pages = [];
 
   $(".video-item", result.data).each((idx, element) => {
     if ($(element).children(".n").attr("href") == undefined) return;
@@ -37,8 +38,6 @@ export default async function handler(req, res) {
       .text();
     const stats = $(element).children(".stats").children(".v").text();
 
-    if (parseInt(duration.split("m")[0]) < 5) return;
-
     videos.push({
       link,
       title,
@@ -49,11 +48,8 @@ export default async function handler(req, res) {
       stats,
     });
   });
-  $(".pagination>ul>li", result.data).each((index, element) => {
-    const page = $(element).children("a").text();
 
-    pages.push(page);
-  });
+  const pageCount = $(".status").children("span").text().split(" ")[1];
 
-  return res.status(200).json({ pageCount: pages[pages.length - 2], videos });
+  return res.status(200).json({ pageCount, videos });
 }
