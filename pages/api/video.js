@@ -67,9 +67,10 @@ export default async function handler(req, res) {
   });
 
   $(".timeline>div", result.data).each((index, element) => {
-    const data = $(element).children("span").children("img").attr("data-src");
+    const photo = $(element).children("span").children("img").attr("data-src");
+    const time = $(element).children("strong").text();
 
-    photos.push(data);
+    photos.push({ photo, time });
   });
 
   video.photos = photos;

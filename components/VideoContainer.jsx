@@ -1,5 +1,5 @@
 import Image from "next/image";
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import Plyr from "plyr-react";
 import "plyr-react/plyr.css";
 import BannerAds from "./BannerAds";
@@ -8,6 +8,8 @@ import Thumbnails from "./Thumbnails";
 import SideBannerAds from "./SideBannerAds";
 
 const VideoContainer = ({ data }) => {
+  const plyrRef = useRef();
+
   const { title, url, thumbnail, popularity, duration, rate, photos } =
     data?.video;
 
@@ -24,12 +26,23 @@ const VideoContainer = ({ data }) => {
     poster: thumbnail,
   };
 
+  const handleThumbnailClick = (e) => {
+    plyrRef.current.plyr.restart();
+    plyrRef.current.plyr.forward(e);
+    plyrRef.current.plyr.play();
+  };
+
   return (
     <div className="w-full flex items-start gap-[8px] my-[12px] sm:flex-row flex-col">
       <div className="w-full bg-gray-800 sm:px-[20px] px-[5px] py-[10px] pb-[20px]">
-        <div className="w-full ">
-          <Plyr source={videoSrc} autoPlay={true} />
+        <div className="w-full mb-[5px]">
+          <Plyr ref={plyrRef} source={videoSrc} autoPlay={true} />
         </div>
+
+        <Thumbnails
+          photos={photos}
+          handleThumbnailClick={handleThumbnailClick}
+        />
 
         <div className="my-[10px]">
           <BannerAds />
@@ -86,14 +99,8 @@ const VideoContainer = ({ data }) => {
           </a>
         </div>
 
-        <div className="my-[40px]">
-          <NativeAds />
-        </div>
-
-        <Thumbnails photos={photos} />
-
         <div className="mt-[40px]">
-          <BannerAds />
+          <NativeAds />
         </div>
       </div>
 
