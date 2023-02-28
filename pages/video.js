@@ -11,7 +11,6 @@ import {
   VideoContainer,
 } from "../components";
 import { fetchVideo } from "../helper/functions";
-import { fakeData } from "../utils/data";
 
 export default function Video() {
   const router = useRouter();

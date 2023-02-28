@@ -2,8 +2,8 @@ import axios from "axios";
 import * as cheerio from "cheerio";
 
 export default async function handler(req, res) {
-  const videoType = req.body.data.type;
-  const result = await axios.get("https://spankbang.com/" + videoType);
+  const { channel } = req.body.data;
+  const result = await axios.get("https://spankbang.com" + channel);
   const $ = cheerio.load(result.data);
   let videos = [];
   let pages = [];
@@ -55,5 +55,7 @@ export default async function handler(req, res) {
     pages.push(page);
   });
 
-  return res.status(200).json({ pageCount: pages[pages.length - 2], videos });
+  return res
+    .status(200)
+    .json({ pageCount: pages[pages.length - 2], videos, channel });
 }

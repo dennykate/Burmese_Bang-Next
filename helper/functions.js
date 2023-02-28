@@ -31,3 +31,43 @@ export const fetchSearchVideos = async (search, page) => {
 
   return data;
 };
+
+export const fetchChannelVideos = async (id, page) => {
+  const { data } = await axios.post(BASE_URL + "/api/channel-videos", {
+    data: {
+      channel: id + page + "/",
+    },
+  });
+
+  return data;
+};
+
+export const fetchChannels = async (page) => {
+  const { data } = await axios.post(BASE_URL + "/api/channels", {
+    data: {
+      page,
+    },
+  });
+
+  return data;
+};
+
+export const fetchPornstarVideos = async (id, page) => {
+  const { data } = await axios.post(BASE_URL + "/api/pornstar-videos", {
+    data: {
+      pornstar: id + page + "/",
+    },
+  });
+
+  return data;
+};
+
+export const fetchPornstars = async (page) => {
+  const { data } = await axios.post(BASE_URL + "/api/pornstars", {
+    data: {
+      page,
+    },
+  });
+
+  return data;
+};

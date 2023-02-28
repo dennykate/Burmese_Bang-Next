@@ -6,3 +6,7 @@ export { default as VideoContainer } from "./VideoContainer";
 export { default as Loading } from "./Loading";
 export { default as RelatedVideos } from "./RelatedVideos";
 export { default as Pagination } from "./Pagination";
+export { default as RecommendedChannels } from "./RecommendedChannels";
+export { default as ChannelCard } from "./ChannelCard";
+export { default as ChannelsContainer } from "./ChannelsContainer";
+export { default as RecommendedPornstars } from "./RecommendedPornstars";

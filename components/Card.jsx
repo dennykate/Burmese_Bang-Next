@@ -2,13 +2,21 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-const Card = ({ data }) => {
+const Card = ({ data, related }) => {
   const remakeUrl = data?.link.substr(23, data?.link.length);
+  const isRelatedForContainer = related
+    ? "sm:min-h-[180px] min-h-[180px]"
+    : "sm:min-h-[180px] min-h-[150px]";
+  const isRelatedForCard = related
+    ? "sm:h-[150px] h-[150px]"
+    : "sm:h-[150px] h-[120px]";
 
   return (
-    <div className="w-auto sm:min-h-[180px] min-h-[150px] flex flex-col group gap-[5px]">
+    <div
+      className={`w-auto  flex flex-col group gap-[5px] ${isRelatedForContainer}`}
+    >
       <Link href={`/video/?id=${remakeUrl}`}>
-        <div className="w-full sm:h-[150px] h-[120px] relative">
+        <div className={`w-full  relative ${isRelatedForCard}`}>
           <Image
             src={data?.thumbnail}
             // src={"https://i.postimg.cc/bNPXbc0F/pexels-photo-6195084.jpg"}

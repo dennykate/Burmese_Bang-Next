@@ -31,12 +31,12 @@ export default function Home() {
       setCurrentPage(page);
     } else if (video) {
       setSearchQuery(video);
-      fetchData(video, 1);
+      fetchData(video);
       setCurrentPage(1);
     }
   }, [router]);
 
-  const fetchData = async (search, page) => {
+  const fetchData = async (search, page = 1) => {
     setVidoes([]);
     scrollToTop();
 

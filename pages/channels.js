@@ -1,25 +1,23 @@
-import axios from "axios";
-import Head from "next/head";
-import Image from "next/image";
 import { useRouter } from "next/router";
 
 import { useState, useEffect, useRef } from "react";
 import {
   Cards,
+  ChannelCard,
+  ChannelsContainer,
   Footer,
   Loading,
   Navbar,
   Pagination,
-  RecommendedChannels,
   RecommendedPornstars,
   SearchItems,
 } from "../components";
-import { fetchVideos } from "../helper/functions";
+import { fetchChannels, fetchVideos } from "../helper/functions";
 
 export default function Home() {
   const router = useRouter();
   const scrollRef = useRef();
-  const [videos, setVidoes] = useState([]);
+  const [channels, setChannels] = useState([]);
   const [pageCount, setPageCount] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -37,13 +35,13 @@ export default function Home() {
   }, [router]);
 
   const fetchData = async (page = 1) => {
-    setVidoes([]);
+    setChannels([]);
     scrollToTop();
 
-    const data = await fetchVideos("trending_videos/", page);
+    const data = await fetchChannels(page);
 
     console.log(data);
-    setVidoes(data.videos);
+    setChannels(data.channels);
     setPageCount(data.pageCount);
   };
 
@@ -56,17 +54,19 @@ export default function Home() {
       <div className="max-w-[1024px] mx-auto ">
         <Navbar />
         <SearchItems />
-        {videos.length > 0 ? (
-          <Cards videos={videos} myRef={scrollRef} />
+        {channels.length > 0 ? (
+          <ChannelsContainer channels={channels} />
         ) : (
           <Loading />
         )}
 
         {pageCount && (
-          <Pagination pageCount={pageCount} currentPage={currentPage} path="" />
+          <Pagination
+            pageCount={pageCount}
+            currentPage={currentPage}
+            path="channels"
+          />
         )}
-
-        <RecommendedChannels />
         <RecommendedPornstars />
       </div>
       <Footer />

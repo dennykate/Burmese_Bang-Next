@@ -1,19 +1,27 @@
 import { useRouter } from "next/router";
 import React from "react";
 
-const Pagination = ({ pageCount, currentPage, path }) => {
+const Pagination = ({ pageCount, currentPage, path, isQueries }) => {
   const router = useRouter();
 
   const handleNextClick = () => {
     if (pageCount == currentPage) return;
 
-    router.push(`${path}/?page=${parseInt(currentPage) + 1}`);
+    if (isQueries) {
+      router.push(`${path}&page=${parseInt(currentPage) + 1}`);
+    } else {
+      router.push(`${path}/?page=${parseInt(currentPage) + 1}`);
+    }
   };
 
   const handlePrevClick = () => {
     if (currentPage <= 1) return;
 
-    router.push(`${path}/?page=${parseInt(currentPage) - 1}`);
+    if (isQueries) {
+      router.push(`${path}&page=${parseInt(currentPage) - 1}`);
+    } else {
+      router.push(`${path}/?page=${parseInt(currentPage) - 1}`);
+    }
   };
 
   return (

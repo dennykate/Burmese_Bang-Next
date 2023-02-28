@@ -32,15 +32,13 @@ export default function Home() {
     } else {
       fetchData(1);
     }
-
-    console.log(process.env.NEXT_APP_BASE_URL);
   }, [router]);
 
-  const fetchData = async (page = 1) => {
+  const fetchData = async (page) => {
     setVidoes([]);
     scrollToTop();
 
-    const data = await fetchVideos("trending_videos/", page);
+    const data = await fetchVideos("upcoming/", page);
 
     console.log(data);
     setVidoes(data.videos);
@@ -63,7 +61,11 @@ export default function Home() {
         )}
 
         {pageCount && (
-          <Pagination pageCount={pageCount} currentPage={currentPage} path="" />
+          <Pagination
+            pageCount={pageCount}
+            currentPage={currentPage}
+            path="upcoming"
+          />
         )}
 
         <RecommendedChannels />

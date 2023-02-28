@@ -11,7 +11,7 @@ const Thumbnails = ({ photos, handleThumbnailClick }) => {
   };
 
   return (
-    <div className="w-full grid grid-cols-5   gap-[5px] ">
+    <div className="w-full grid sm:grid-cols-5 grid-cols-4  sm:gap-[3px] gap-[1px]">
       {photos.map(({ photo, time }, index) => (
         <div
           onClick={() => {

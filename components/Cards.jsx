@@ -23,17 +23,17 @@ const Cards = ({ videos, myRef }) => {
 
       {limitVideos < videos.length && (
         <div className="pt-[10px] w-full flex justify-center items-center">
-          <div className="w-[260px] h-[40px] flex items-center">
+          <div className="sm:w-[260px] w-[200px] sm:h-[40px] h-[30px] flex items-center">
             <div
-              className="w-[100px] h-full flex justify-center items-center border-[1px] border-primary text-white
-           font-raleWay"
+              className="sm:w-[100px] w-[80px] h-full flex justify-center items-center border-[1px] border-primary 
+              text-white font-raleWay sm:text-base text-sm"
             >
               {limitVideos}/{videos.length}
             </div>
             <button
               onClick={handleClick}
-              className="w-[140px] h-full flex justify-center items-center text-white bg-primary font-raleWay
-           font-medium hover:bg-opacity-80"
+              className="sm:w-[140px] w-[120px] h-full flex justify-center items-center text-white bg-primary font-raleWay
+              font-medium hover:bg-opacity-80 sm:text-base text-sm"
             >
               See More
             </button>

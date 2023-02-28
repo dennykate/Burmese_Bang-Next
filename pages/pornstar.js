@@ -11,10 +11,9 @@ import {
   Navbar,
   Pagination,
   RecommendedChannels,
-  RecommendedPornstars,
   SearchItems,
 } from "../components";
-import { fetchVideos } from "../helper/functions";
+import { fetchChannelVideos, fetchPornstarVideos } from "../helper/functions";
 
 export default function Home() {
   const router = useRouter();
@@ -22,25 +21,27 @@ export default function Home() {
   const [videos, setVidoes] = useState([]);
   const [pageCount, setPageCount] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
+  const [pornstarQuery, setPornstarQuery] = useState("");
 
   useEffect(() => {
-    const page = router.query.page;
+    const { page, id } = router.query;
 
-    if (page) {
-      fetchData(page);
+    if (page && id) {
+      setPornstarQuery(id);
+      fetchData(id, page);
       setCurrentPage(page);
-    } else {
-      fetchData(1);
+    } else if (id) {
+      setPornstarQuery(id);
+      fetchData(id);
+      setCurrentPage(1);
     }
-
-    console.log(process.env.NEXT_APP_BASE_URL);
   }, [router]);
 
-  const fetchData = async (page = 1) => {
+  const fetchData = async (id, page = 1) => {
     setVidoes([]);
     scrollToTop();
 
-    const data = await fetchVideos("trending_videos/", page);
+    const data = await fetchPornstarVideos(id, page);
 
     console.log(data);
     setVidoes(data.videos);
@@ -63,11 +64,15 @@ export default function Home() {
         )}
 
         {pageCount && (
-          <Pagination pageCount={pageCount} currentPage={currentPage} path="" />
+          <Pagination
+            pageCount={pageCount}
+            currentPage={currentPage}
+            path={`pornstar?id=${pornstarQuery}`}
+            isQueries
+          />
         )}
 
         <RecommendedChannels />
-        <RecommendedPornstars />
       </div>
       <Footer />
     </div>

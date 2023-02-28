@@ -10,9 +10,11 @@ import {
   Loading,
   Navbar,
   Pagination,
+  RecommendedChannels,
+  RecommendedPornstars,
   SearchItems,
-} from "../../components";
-import { fetchVideos } from "../../helper/functions";
+} from "../components";
+import { fetchVideos } from "../helper/functions";
 
 export default function Home() {
   const router = useRouter();
@@ -65,6 +67,9 @@ export default function Home() {
             path="new_videos"
           />
         )}
+
+        <RecommendedChannels />
+        <RecommendedPornstars />
       </div>
       <Footer />
     </div>
