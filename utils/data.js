@@ -114,3 +114,41 @@ export const recommendedPornstarsData = [
     videosCount: 1077,
   },
 ];
+
+export const searchChannelsData = [
+  {
+    name: "BRAZZERS",
+    href: "/channel?id=/ho/channel/brazzers/",
+  },
+  {
+    name: "Model Media Asia",
+    href: "/channel?id=/fy/channel/model+media+asia/",
+  },
+  {
+    name: "Public Agent",
+    href: "/channel?id=/i4/channel/public+agent/",
+  },
+  {
+    name: "JAVHD",
+    href: "/channel?id=/6w/channel/javhd/",
+  },
+  {
+    name: "Fake Taxi",
+    href: "/channel?id=/i5/channel/fake+taxi/",
+  },
+];
+
+export const searchPornstarsData = [
+  {
+    name: "Mia Khalifa",
+    href: "/pornstar?id=/3/pornstar/mia+khalifa/",
+  },
+  {
+    name: "Lana Rhoades",
+    href: "/pornstar?id=/759/pornstar/lana+rhoades/",
+  },
+  {
+    name: "Anri Okita",
+    href: "/pornstar?id=/96/pornstar/anri+okita/",
+  },
+];

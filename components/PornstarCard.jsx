@@ -22,13 +22,13 @@ const PornstarCard = ({ data }) => {
         <div className=" absolute bottom-[5px] w-full p-[3px] flex flex-col items-start gap-[2px]">
           <div className="p-[3px] bg-gray-800 bg-opacity-70 flex items-center gap-[2px] rounded">
             <AiOutlineEye color="white" size={12} />
-            <h1 className="text-[10px] text-white font-raleWay">
+            <h1 className="sm:text-[10px] text-[8px] text-white font-raleWay">
               {data?.views}
             </h1>
           </div>
           <div className="p-[3px] bg-gray-800 bg-opacity-70 flex items-center gap-[2px] rounded">
             <BiCameraMovie color="white" size={12} />
-            <h1 className="text-[10px] text-white font-raleWay">
+            <h1 className="sm:text-[10px] text-[8px] text-white font-raleWay">
               {data?.videosCount}
             </h1>
           </div>

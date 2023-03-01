@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import BannerAds from "./BannerAds";
 import PornstarCard from "./PornstarCard";
 
 const PornstarsContainer = ({ pornstars }) => {
@@ -8,10 +9,14 @@ const PornstarsContainer = ({ pornstars }) => {
 
   return (
     <div className="w-full py-[20px]">
-      <div className="w-full p-[10px] grid md:grid-cols-6 sm:grid-cols-5 grid-cols-3 sm:gap-[20px] gap-[8px]">
+      <div className="w-full p-[10px] grid md:grid-cols-6 sm:grid-cols-4 grid-cols-3 sm:gap-[15px] gap-[3px]">
         {pornstars.slice(0, limitPornstars).map((pornstar, index) => (
           <PornstarCard key={index} data={pornstar} />
         ))}
+      </div>
+
+      <div className="py-[16px]">
+        <BannerAds />
       </div>
 
       {limitPornstars < pornstars.length && (

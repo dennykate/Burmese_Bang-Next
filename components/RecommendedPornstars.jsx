@@ -8,10 +8,11 @@ const RecommendedChannels = () => {
       <h1 className="text-lg font-raleWay text-white font-semibold">
         Recommended Pornstars
       </h1>
-      <div className="grid md:grid-cols-6 grid-cols-5 md:gap-[15px] gap-[8px] my-[10px]">
+      <div className="grid md:grid-cols-6 sm:grid-cols-4 grid-cols-3 md:gap-[12px] gap-[3px] my-[10px]">
         {recommendedPornstarsData.map((data, index) => (
           <PornstarCard key={index} data={data} />
         ))}
+        
       </div>
     </div>
   );

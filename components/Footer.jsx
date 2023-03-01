@@ -6,6 +6,7 @@ import { WiStars } from "react-icons/wi";
 import { AiOutlineCopyright } from "react-icons/ai";
 
 import Logo from "../assets/logo.png";
+import Link from "next/link";
 
 const Footer = () => {
   return (
@@ -15,24 +16,30 @@ const Footer = () => {
           <Image src={Logo} alt="logo" />
         </div>
         <div className=" flex flex-col gap-[24px] sm:items-start items-end sm:w-[300px] w-[200px]">
-          <div className="flex items-center gap-[5px] text-white hover:text-primary cursor-pointer group">
-            <BsFillCameraVideoFill size={20} />
-            <h1 className="text-sm font-raleWay group-hover:underline">
-              Videos
-            </h1>
-          </div>
-          <div className="flex items-center gap-[5px] text-white hover:text-primary cursor-pointer group">
-            <BiCategoryAlt size={20} />
-            <h1 className="text-sm font-raleWay group-hover:underline">
-              Channels
-            </h1>
-          </div>
-          <div className="flex items-center gap-[5px] text-white hover:text-primary cursor-pointer group">
-            <WiStars size={20} />
-            <h1 className="text-sm font-raleWay group-hover:underline">
-              Pornstars
-            </h1>
-          </div>
+          <Link href="/">
+            <div className="flex items-center gap-[5px] text-white hover:text-primary cursor-pointer group">
+              <BsFillCameraVideoFill size={20} />
+              <h1 className="text-sm font-raleWay group-hover:underline">
+                Videos
+              </h1>
+            </div>
+          </Link>
+          <Link href="channels">
+            <div className="flex items-center gap-[5px] text-white hover:text-primary cursor-pointer group">
+              <BiCategoryAlt size={20} />
+              <h1 className="text-sm font-raleWay group-hover:underline">
+                Channels
+              </h1>
+            </div>
+          </Link>
+          <Link href="pornstars">
+            <div className="flex items-center gap-[5px] text-white hover:text-primary cursor-pointer group">
+              <WiStars size={20} />
+              <h1 className="text-sm font-raleWay group-hover:underline">
+                Pornstars
+              </h1>
+            </div>
+          </Link>
         </div>
       </div>
 
