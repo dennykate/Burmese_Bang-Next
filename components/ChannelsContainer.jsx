@@ -5,7 +5,7 @@ import ChannelCard from "./ChannelCard";
 const ChannelsContainer = ({ channels }) => {
   return (
     <div className="w-full ">
-      <div className="w-full p-[10px] grid md:grid-cols-8 sm:grid-cols-6 grid-cols-4 sm:gap-[20px] gap-[8px]">
+      <div className="w-full sm:p-[10px] p-[4px] grid md:grid-cols-4 sm:grid-cols-3 grid-cols-2 sm:gap-[12px] gap-[4px]">
         {channels.map((channel, index) => (
           <ChannelCard key={index} data={channel} />
         ))}

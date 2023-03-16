@@ -38,7 +38,7 @@ export default function Home() {
     setVidoes([]);
     scrollToTop();
 
-    const data = await fetchVideos("upcoming/", page);
+    const data = await fetchVideos("tags/teenager/", page);
 
     console.log(data);
     setVidoes(data.videos);
@@ -68,8 +68,8 @@ export default function Home() {
           />
         )}
 
-        <RecommendedChannels />
-        <RecommendedPornstars />
+        {/* <RecommendedChannels />
+        <RecommendedPornstars /> */}
       </div>
       <Footer />
     </div>

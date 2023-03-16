@@ -20,7 +20,6 @@ export default function Video() {
   useEffect(() => {
     const { id } = router.query;
     if (id) {
-      console.log(id);
       setVideoData(null);
       fetchData(id);
     }
@@ -29,7 +28,6 @@ export default function Video() {
   const fetchData = async (url) => {
     const data = await fetchVideo(url);
 
-    console.log(data);
     setVideoData(data);
   };
 

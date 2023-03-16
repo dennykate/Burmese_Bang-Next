@@ -118,37 +118,45 @@ export const recommendedPornstarsData = [
 export const searchChannelsData = [
   {
     name: "BRAZZERS",
-    href: "/channel?id=/ho/channel/brazzers/",
+    href: "/channel?id=brazzers/",
   },
   {
     name: "Model Media Asia",
-    href: "/channel?id=/fy/channel/model+media+asia/",
+    href: "/channel?id=model-media/",
   },
   {
     name: "Public Agent",
-    href: "/channel?id=/i4/channel/public+agent/",
+    href: "/channel?id=public-agent/",
   },
   {
     name: "JAVHD",
-    href: "/channel?id=/6w/channel/javhd/",
+    href: "/channel?id=javhd/",
   },
   {
     name: "Fake Taxi",
-    href: "/channel?id=/i5/channel/fake+taxi/",
+    href: "/channel?id=fake-taxi/",
+  },
+  {
+    name: "More ...",
+    href: "/channels",
   },
 ];
 
 export const searchPornstarsData = [
   {
     name: "Mia Khalifa",
-    href: "/pornstar?id=/3/pornstar/mia+khalifa/",
+    href: "/pornstar?id=mia-khalifa/",
   },
   {
     name: "Lana Rhoades",
-    href: "/pornstar?id=/759/pornstar/lana+rhoades/",
+    href: "/pornstar?id=lana-rhoades/",
   },
   {
-    name: "Anri Okita",
-    href: "/pornstar?id=/96/pornstar/anri+okita/",
+    name: "Eva Elfie",
+    href: "/pornstar?id=eva-elfie/",
+  },
+  {
+    name: "More ...",
+    href: "/pornstars",
   },
 ];

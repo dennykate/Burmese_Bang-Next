@@ -9,6 +9,8 @@ const nextConfig = {
       "i.postimg.cc",
       "static.spankbang.com",
       "static.spankbang.com",
+      "i.xgroovy.com",
+      "xgroovy.com",
     ],
   },
   webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {

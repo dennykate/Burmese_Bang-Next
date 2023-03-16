@@ -3,57 +3,44 @@ import * as cheerio from "cheerio";
 
 export default async function handler(req, res) {
   const videoType = req.body.data.type;
-  const result = await axios.get("https://spankbang.com/" + videoType);
+  const result = await axios.get("https://xgroovy.com/" + videoType);
   const $ = cheerio.load(result.data);
   let videos = [];
-  let pages = [];
 
-  $(".video-item", result.data).each((idx, element) => {
-    if ($(element).children(".n").attr("href") == undefined) return;
-    if ($(element).children("a").attr("href") == undefined) return;
-
-    const link =
-      "https://spankbang.com/" + $(element).children(".n").attr("href");
-    const title = $(element).children(".n").text();
+  $(".item", result.data).each((index, element) => {
+    const title = $(element)
+      .children("a")
+      .children("div")
+      .children("img")
+      .attr("alt");
+    const link = $(element).children("a").attr("href");
     const thumbnail = $(element)
       .children("a")
-      .children("picture")
+      .children("div")
       .children("img")
-      .attr("data-src");
-    const preview = $(element)
-      .children("a")
-      .children("picture")
-      .children("img")
-      .attr("data-preview");
-    const duration = $(element)
-      .children("a")
-      .children("p")
-      .children(".l")
-      .text();
+      .attr("src");
+    const duration = $(element).children(".wrap").children(".duration").text();
+    const stats = $(element).children(".wrap").children(".views").text();
     const resolution = $(element)
       .children("a")
-      .children("p")
-      .children(".h")
+      .children("div")
+      .children("span")
+      .children(".is-hd")
       .text();
-    const stats = $(element).children(".stats").children(".v").text();
-
-    if (parseInt(duration.split("m")[0]) < 5) return;
+    const preview = "";
 
     videos.push({
-      link,
       title,
+      link,
       thumbnail,
-      preview,
       duration,
       resolution,
       stats,
+      preview,
     });
   });
-  $(".pagination>ul>li", result.data).each((index, element) => {
-    const page = $(element).children("a").text();
 
-    pages.push(page);
-  });
+  const pageCount = $(".last").children("a").text();
 
-  return res.status(200).json({ pageCount: pages[pages.length - 2], videos });
+  return res.status(200).json({ pageCount, videos });
 }

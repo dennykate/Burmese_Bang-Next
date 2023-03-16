@@ -2,78 +2,65 @@ import axios from "axios";
 import * as cheerio from "cheerio";
 
 export default async function handler(req, res) {
-  const url = "https://spankbang.com/" + req.body.data.url;
-
-  const result = await axios.get(url);
+  const result = await axios.get(
+    "https://xgroovy.com/videos/" + req.body.data.url
+  );
   const $ = cheerio.load(result.data);
 
-  const videoTitle = $(".left>h1").text();
-  const videoUrl = $("source").attr("src");
-  const videoThumbnail = $(".player_thumb").attr("data-src");
-  const popularity = $(".i-plays").text();
-  const duration = $(".hd-time").children(".i-length").text();
-  const rate = $(".rate").text();
+  const title = $(".page-title").children("h1").text();
+  const duration = $(".page-title").children(".duration").text();
+  const url = $("source").attr("src");
+  const thumbnail = $(".fluid_pseudo_poster").attr("style");
+  const popularity = $(".page-title").children(".views").text();
+  const rate = $(".rate-like").children("span").text();
+  let relatedVideos = [];
+
   const video = {
-    title: videoTitle,
-    url: videoUrl,
-    thumbnail: videoThumbnail,
-    popularity,
+    title,
+    url,
     duration,
+    thumbnail,
+    popularity,
     rate,
   };
 
-  let relatedVideos = [];
-  const photos = [];
-
-  $(".video-item", result.data).each((idx, element) => {
-    if ($(element).children(".n").attr("href") == undefined) return;
-    if ($(element).children("a").attr("href") == undefined) return;
-
-    const link =
-      "https://spankbang.com/" + $(element).children(".n").attr("href");
-    const title = $(element).children(".n").text();
+  $(".item", result.data).each((index, element) => {
+    const title = $(element)
+      .children("a")
+      .children("div")
+      .children("img")
+      .attr("alt");
+    const link = $(element).children("a").attr("href");
     const thumbnail = $(element)
       .children("a")
-      .children("picture")
+      .children("div")
       .children("img")
-      .attr("data-src");
-    const preview = $(element)
-      .children("a")
-      .children("picture")
-      .children("img")
-      .attr("data-preview");
-    const duration = $(element)
-      .children("a")
-      .children("p")
-      .children(".l")
-      .text();
+      .attr("src");
+    const duration = $(element).children(".wrap").children(".duration").text();
+    const stats = $(element).children(".wrap").children(".views").text();
     const resolution = $(element)
       .children("a")
-      .children("p")
-      .children(".h")
+      .children("div")
+      .children("span")
+      .children("span")
       .text();
+    const preview = "";
 
-    const stats = $(element).children(".stats").children(".v").text();
-
-    relatedVideos.push({
-      link,
-      title,
-      thumbnail,
-      preview,
-      duration,
-      resolution,
-      stats,
-    });
+    if (title !== undefined)
+      relatedVideos.push({
+        title,
+        link,
+        thumbnail,
+        duration,
+        resolution,
+        stats,
+        preview,
+      });
   });
 
-  $(".timeline>div", result.data).each((index, element) => {
-    const photo = $(element).children("span").children("img").attr("data-src");
-    const time = $(element).children("strong").text();
+  video.photos = [];
 
-    photos.push({ photo, time });
-  });
-
-  video.photos = photos;
+  console.log(video);
 
   return res.status(200).json({ video, relatedVideos });
 }

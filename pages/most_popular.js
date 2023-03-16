@@ -38,7 +38,7 @@ export default function Home() {
     setVidoes([]);
     scrollToTop();
 
-    const data = await fetchVideos("most_popular/", page);
+    const data = await fetchVideos("tags/big-cock/", page);
 
     console.log(data);
     setVidoes(data.videos);
@@ -68,8 +68,8 @@ export default function Home() {
           />
         )}
 
-        <RecommendedChannels />
-        <RecommendedPornstars />
+        {/* <RecommendedChannels />
+        <RecommendedPornstars /> */}
       </div>
       <Footer />
     </div>

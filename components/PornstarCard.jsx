@@ -5,9 +5,15 @@ import { BiCameraMovie } from "react-icons/bi";
 import { AiOutlineEye } from "react-icons/ai";
 
 const PornstarCard = ({ data }) => {
+  const makeUrl = () => {
+    const link = data.link.split("pornstars/")[1];
+
+    return link;
+  };
+
   return (
     <Link
-      href={`/pornstar?id=${data?.link}`}
+      href={`/pornstar?id=${makeUrl()}`}
       target="_blank"
       className=" sm:mb-0 mb-[10px]"
     >
@@ -16,7 +22,7 @@ const PornstarCard = ({ data }) => {
           src={data?.thumbnail}
           alt="channel-logo"
           width={1024}
-          height={1024}
+          height={512}
           className="w-full mb-[5px]"
         />
         <div className=" absolute bottom-[5px] w-full p-[3px] flex flex-col items-start gap-[2px]">

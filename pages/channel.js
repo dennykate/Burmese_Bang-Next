@@ -73,7 +73,7 @@ export default function Home() {
           />
         )}
 
-        <RecommendedPornstars />
+        {/* <RecommendedPornstars /> */}
       </div>
       <Footer />
     </div>

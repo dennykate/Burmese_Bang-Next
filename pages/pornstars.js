@@ -68,7 +68,7 @@ export default function Home() {
             path="pornstars"
           />
         )}
-        <RecommendedChannels />
+        {/* <RecommendedChannels /> */}
       </div>
       <Footer />
     </div>

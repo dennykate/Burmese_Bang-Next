@@ -72,7 +72,7 @@ export default function Home() {
           />
         )}
 
-        <RecommendedChannels />
+        {/* <RecommendedChannels /> */}
       </div>
       <Footer />
     </div>

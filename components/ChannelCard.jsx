@@ -3,9 +3,15 @@ import Link from "next/link";
 import Image from "next/image";
 
 const ChannelCard = ({ data }) => {
+  const makeUrl = () => {
+    const link = data.link.split("channels/")[1]
+
+    return link
+  }
+
   return (
     <Link
-      href={`/channel?id=${data?.link}`}
+      href={`/channel?id=${makeUrl()}`}
       target="_blank"
       className=" sm:mb-0 mb-[10px]"
     >

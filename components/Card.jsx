@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 const Card = ({ data, related }) => {
-  const remakeUrl = data?.link.substr(23, data?.link.length);
+  const remakeUrl = data?.link.substr(27, data?.link.length);
   const isRelatedForContainer = related
     ? "sm:min-h-[180px] min-h-[180px]"
     : "sm:min-h-[180px] min-h-[150px]";

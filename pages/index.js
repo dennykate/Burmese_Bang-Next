@@ -40,7 +40,7 @@ export default function Home() {
     setVidoes([]);
     scrollToTop();
 
-    const data = await fetchVideos("trending_videos/", page);
+    const data = await fetchVideos("new/", page);
 
     console.log(data);
     setVidoes(data.videos);
@@ -66,8 +66,8 @@ export default function Home() {
           <Pagination pageCount={pageCount} currentPage={currentPage} path="" />
         )}
 
-        <RecommendedChannels />
-        <RecommendedPornstars />
+        {/* <RecommendedChannels />
+        <RecommendedPornstars /> */}
       </div>
       <Footer />
     </div>

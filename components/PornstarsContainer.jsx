@@ -9,7 +9,7 @@ const PornstarsContainer = ({ pornstars }) => {
 
   return (
     <div className="w-full py-[20px]">
-      <div className="w-full p-[10px] grid md:grid-cols-6 sm:grid-cols-4 grid-cols-3 sm:gap-[15px] gap-[3px]">
+      <div className="w-full p-[10px] grid md:grid-cols-4 sm:grid-cols-3 grid-cols-2 sm:gap-[12px] gap-[3px]">
         {pornstars.slice(0, limitPornstars).map((pornstar, index) => (
           <PornstarCard key={index} data={pornstar} />
         ))}

@@ -4,29 +4,25 @@ import * as cheerio from "cheerio";
 export default async function handler(req, res) {
   const { page } = req.body.data;
 
-  const result = await axios.get("https://spankbang.com/pornstars/" + page);
+  const result = await axios.get("https://xgroovy.com/pornstars/" + page);
   const $ = cheerio.load(result.data);
   let pornstars = [];
-  let pages = [];
 
-  $(".results>li", result.data).each((index, element) => {
-    const link = $(element).children("a").attr("href");
-    const title = $(element).children("a").children("img").attr("title");
-    const thumbnail =
-      "https:" + $(element).children("a").children("img").attr("src");
-    const views = $(element).children("a").children(".views").text();
-    const videosCount = $(element).children("a").children(".videos").text();
+  $(".item", result.data).each((index, element) => {
+    const link = $(element).attr("href");
+    const title = $(element).attr("title");
+    const thumbnail = $(element).children("div").children("img").attr("src");
+    const views = "---";
+    const videosCount = $(element)
+      .children(".wrap")
+      .children(".videos")
+      .text()
+      .split(" ")[0];
 
     pornstars.push({ link, title, thumbnail, views, videosCount });
   });
 
-  $(".pagination>ul>li", result.data).each((index, element) => {
-    const page = $(element).children("a").text();
+  const pageCount = $(".last").children("a").text();
 
-    pages.push(page);
-  });
-
-  return res
-    .status(200)
-    .json({ pageCount: pages[pages.length - 2], pornstars });
+  return res.status(200).json({ pornstars, pageCount });
 }
