@@ -60,7 +60,5 @@ export default async function handler(req, res) {
 
   video.photos = [];
 
-  console.log(video);
-
   return res.status(200).json({ video, relatedVideos });
 }

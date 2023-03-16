@@ -53,7 +53,7 @@ const VideoContainer = ({ data }) => {
             <h1 className=" font-raleWay  sm:text-base text-sm text-white">
               Name -{" "}
             </h1>
-            <h1 className=" font-raleWay font-semibold sm:text-lg text-xs text-[#f5f5f5]">
+            <h1 className=" font-raleWay font-semibold sm:text-lg text-xs text-[#f5f5f5] truncate">
               {title}
             </h1>
           </div>
